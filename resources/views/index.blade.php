@@ -20,7 +20,6 @@
 <ul style="width: 40%; margin: 50px auto" class="list-group">
     <form class="form-inline" action="{{route('todo.store')}}" method="POST">
         @csrf()
-        <!-- <div class="form-group mb-2 w-100 p-2" style="background-color: #bdc3c7; border-radius: 5px"> -->
         <div class="row">
             <div class="col col-11 my-3 w-100">
                 <div class="row bg-white rounded shadow-sm p-2 add-todo-wrapper align-items-center justify-content-center">
@@ -72,7 +71,7 @@
             let url = '/public/filter/' + _query
             $.get(url, function (data) {
 
-                $("#myTabContent").empty();//lipar a div
+                $("#myTabContent").empty();//limpar a div
                 data.forEach(function (valor) {
                     createListItem(valor);
                 });
@@ -83,15 +82,15 @@
 
 
         function createListItem(valor) {
-            let traco = valor.task
+            let line = valor.task
             if (valor.status == 'c'){
-                traco = '<s>' +valor.task+ '</s>'
+                line = '<s>' +valor.task+ '</s>'
             }
 
             let listItem = "<li class='list-group-item d-flex flex-row justify-content-between'>" +
                 "<div class='form-check d-flex flex-row align-items-center'>" +
                 "<a class='btn check' data-id=" + valor.id + "><i class='bi-check-lg'></i></a>" +
-                "<label class='form-check-label'> <p>" + traco + "</p></label>" +
+                "<label class='form-check-label'> <p>" + line + "</p></label>" +
                 "</div>" +
                 "<div class='d-flex align-items-center'>" +
                 "<a class='btn trash' data-id=" + valor.id + "><i class='bi-trash'></i></a>" +
